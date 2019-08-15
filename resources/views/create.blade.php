@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('main')
 <div class="container">
-    <h1>Blog</h1>
+    <h1>Create a Blog Post</h1>
     <div class="row">
         <div class="col">
             <form action="/blog/create" method="POST">
