@@ -11,51 +11,11 @@
 |
 */
 
-//class Dog {
-//public $name;
+Route::get('/', 'BlogController@index');
 
-//public function__construct($name)
-//{
-//$name= $name;
-//}
-
-//public function whatIsName()
-//{
-//return $this->$name;
-//}
-
-//public static function bark()
-//{
-//echo 'bark';
-//}
-//}
-
-//$fido = new Dog('fido)');
-//$fido->walk();
-
-//Dog::bark()
-
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('blog')->group(function () {
+    Route::get('/', 'BlogController@index')->name('blog.home');
+    Route::get('/create', 'BlogController@getCreatePage')->name('blog.create.view');
+    Route::get('/all', "BlogController@all")->name('blog.all');
+    Route::post('/blog/create', "BlogController@create")->name('blog.create.submit');
 });
-
-Route::get('/test', function () {
-    //return view('temporary');
-    return 'test';
-});
-
-Route::get('/blog/create', function () {
-    return view('create');
-})->name('create');
-
-Route::get('/blog/all', "BlogController@all")->name('blogs');
-
-// Route::post('/blog/create', function () {
-//     return view('blog');
-// });
-
-Route::post('/blog/create', "BlogController@create");
-
-//Route::get('/thisisapost', function () {
-    //return view('made it here');
-//});
