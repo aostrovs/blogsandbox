@@ -12,12 +12,18 @@ class BlogController extends Controller
     {
         return view('blog.index');
     }
-    
+
     public function getCreatePage()
     {
         return view('blog.create');
     }
-    
+
+    public function getEditPage($post_id)
+    {
+        $blog = Blog::find($post_id);
+        return view('blog.edit', compact("blog"));
+    }
+
     public function create(Request $request)
     {
         $blog = new Blog;
@@ -31,8 +37,6 @@ class BlogController extends Controller
     public function all(Request $request)
     {
         $blogs = Blog::all();
-        return view('blog.all', ['blogs'=>$blogs]);
-
+        return view('blog.all', ['blogs' => $blogs]);
     }
 }
-

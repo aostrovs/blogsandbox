@@ -18,4 +18,5 @@ Route::prefix('blog')->group(function () {
     Route::get('/create', 'BlogController@getCreatePage')->name('blog.create.view');
     Route::get('/all', "BlogController@all")->name('blog.all');
     Route::post('/blog/create', "BlogController@create")->name('blog.create.submit');
+    Route::get('/edit/{post_id}', 'BlogController@getEditPage')->name('blog.edit.view');
 });

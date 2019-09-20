@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="card-title">
                             <h5 class="d-inline">{{ $blog->title }}</h5>
-                            <a href="" class="btn btn-primary d-inline float-right">Edit</a>
+                            <a href="{{route('blog.edit.view', ['post_id'=>$blog->id])}}" class="btn btn-primary d-inline float-right">Edit</a>
                         </div>
                         <p class="card-text text-truncate">{{ $blog->body }}</p>
                     </div>
