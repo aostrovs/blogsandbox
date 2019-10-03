@@ -5,7 +5,7 @@
     <div class="row d-flex justify-content-center mt-5">
         <div class="col-6">
             <h1>Edit Post {{$blog->id}}</h1>
-            <form action="{{ route('blog.create.submit') }}" method="POST">
+            <form action="{{ route('blog.edit.submit', ['post_id'=>$blog->id]) }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <input class="form-control" type="text" name="article_title" placeholder="Article Title" value="{{$blog->title}}">

@@ -10,6 +10,7 @@
                         <div class="card-title">
                             <h5 class="d-inline">{{ $blog->title }}</h5>
                             <a href="{{route('blog.edit.view', ['post_id'=>$blog->id])}}" class="btn btn-primary d-inline float-right">Edit</a>
+                            <a href="{{route('blog.delete', ['post_id'=>$blog->id])}}" class="btn btn-danger d-inline float-right">Delete</a>
                         </div>
                         <p class="card-text text-truncate">{{ $blog->body }}</p>
                     </div>

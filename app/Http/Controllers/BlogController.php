@@ -24,12 +24,29 @@ class BlogController extends Controller
         return view('blog.edit', compact("blog"));
     }
 
+    public function postEditData($post_id, Request $request)
+    {
+        $blog = Blog::find($post_id);
+        $blog->title = $request->article_title;
+        $blog->body = $request->article;
+        $blog->save();
+        return redirect()->route('blog.all');
+    }
+
     public function create(Request $request)
     {
         $blog = new Blog;
         $blog->title = $request->article_title;
         $blog->body = $request->article;
         $blog->save();
+
+        return redirect()->route('blog.all');
+    }
+
+    public function deleteData($post_id)
+    {
+        $blog = Blog::find($post_id);
+        $blog->delete();
 
         return redirect()->route('blog.all');
     }
